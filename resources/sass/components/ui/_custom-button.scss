@@ -1,6 +1,6 @@
 .custom-button{
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
@@ -18,7 +18,13 @@
   font-weight: 600;
   line-height: 100%; /* 2.4rem */
   text-transform: uppercase;
+  &--small{
+    width: 17rem;
+    height: 17rem;
+    font-size: 2.2rem;
+  }
   @media (max-width: 480px) {
+    padding: 2rem 3rem;
     width: auto;
     height: auto;
     border-radius: 1rem;

@@ -9,6 +9,7 @@ import {tabs} from "./ui/_tabs";
 import {sendRequestClickListener} from "./ui/_request-on-click";
 import FormHandler from "./forms/FormHandler";
 import '../plugins/SVGLoader';
+import AOS from "aos";
 
 
 export default class Application {
@@ -53,6 +54,9 @@ export default class Application {
             const formHandler = new FormHandler('.form-js');
             $('img.svg').toSVG({
                 svgClass: "svg-loaded"
+            });
+            AOS.init({
+                once: true
             });
         });
     }

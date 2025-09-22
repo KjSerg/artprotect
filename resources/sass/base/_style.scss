@@ -1,6 +1,6 @@
 html {
   font-size: 10px;
-  @media (max-width: 1600px) {
+  @media (max-width: 1700px) {
     font-size: 9px;
   }
 }
@@ -142,13 +142,16 @@ section {
   max-width: 156rem;
   margin: 0 auto;
   padding: 0 1.6rem;
-  &:before{
-    left: 1.6rem;
+
+  &:before {
+    left: 1.5rem;
   }
-  &:after{
-    right: 1.6rem;
+
+  &:after {
+    right: 1.5rem;
   }
-  &:before,&:after{
+
+  &:before, &:after {
     position: absolute;
     display: block;
     content: '';
@@ -157,6 +160,9 @@ section {
     height: 100%;
     opacity: 0.05;
     background: #000;
+    @media (max-width: 1460px) {
+      display: none;
+    }
   }
 }
 
@@ -165,6 +171,59 @@ section {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
+
+  &-footer {
+    display: flex;
+
+    &__counter {
+      padding-bottom: 4rem;
+      display: flex;
+      align-items: flex-end;
+      gap: 1rem;
+      justify-content: center;
+      width: calc((100% - 152.8rem) / 2);
+      color: #BDBDBD;
+      font-family: "Alumni Sans SC", sans-serif;
+      font-size: 2.6rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 100%;
+      text-transform: uppercase;
+      @media (max-width: 1800px) {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+      }
+      @media (max-width: 1475px) {
+        padding-bottom: 2rem;
+        flex-direction: column;
+        font-size: 2.6rem;
+      }
+      @media (max-width: 1460px) {
+        display: none;
+      }
+      strong{
+        font-size: 5.5rem;color: #319597;
+        line-height: 4.5rem;
+        @media (max-width: 1800px) {
+          width: 100%;
+          text-align: center;
+        }
+        @media (max-width: 1475px) {
+          font-size: 3.5rem;
+          line-height: 2.5rem;
+        }
+      }
+    }
+    &__decor {
+      position: relative;
+      width: 100%;
+      max-width: 152.9rem;
+      border-right: 1px solid rgba(#000,0.05);
+      border-left: 1px solid rgba(#000,0.05);
+    }
+  }
 }
 
 .padding-top-none {
@@ -190,7 +249,7 @@ section {
   font-weight: 500;
   line-height: 145%;
 
-  & > *:not(:last-child){
+  & > *:not(:last-child) {
     margin-bottom: 2rem;
   }
 
@@ -287,8 +346,8 @@ section {
   align-items: center;
 }
 
-.animation-none{
-  animation: none!important;
+.animation-none {
+  animation: none !important;
 }
 
 @keyframes show {

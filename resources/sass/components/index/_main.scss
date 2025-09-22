@@ -1,0 +1,203 @@
+.main {
+
+  &-section {
+    @media (max-width: 1460px) {
+      height: 99rem;
+    }
+    @media (max-width: 767px) {
+      overflow: hidden;
+      height: auto;
+    }
+    &__decor{
+      z-index: 2;
+      position: absolute;
+      display: block;
+      width: 100vw;
+      height: 1px;
+      border-top: 1px solid rgba(#000, 0.05);
+      top: 22.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      &:before{
+        left: calc((100% - 153.2rem) / 2);
+      }
+      &:after{
+        right: calc((100% - 153.2rem) / 2);
+      }
+      &:before, &:after{
+        position: absolute;
+        display: block;
+        content: '';
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: #319597;
+        top: -2px;
+        @media (max-width: 1460px) {
+          display: none;
+        }
+      }
+    }
+    &:after{
+      position: absolute;
+      display: block;
+      content: '';
+      bottom: 0;
+      height: 1px;
+      width: 100%;
+      background-color: rgba(#000, 0.05);
+      z-index: 2;
+    }
+    &__networks {
+      height: 11.9rem;
+      min-width: calc((100% - 152.8rem) / 2);
+      @media (max-width: 1900px) {
+        flex-direction: column;
+        height: auto;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+      }
+      @media (max-width: 1460px) {
+        display: none;
+      }
+    }
+  }
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+  }
+
+  &-controls {
+    margin-bottom: 10rem;
+    margin-top: 56rem;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-left: 10rem;
+    padding-right: 10rem;
+
+    @media (max-width: 1900px) {
+      margin-bottom: 5rem;
+    }
+    @media (max-width: 768px) {
+      margin-top: 30rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+    @media (max-width: 480px) {
+      flex-direction: column;
+    }
+    &__decor {
+      position: absolute;
+      display: block;
+      width: 100vw;
+      height: 1px;
+      border-top: 1px solid rgba(#000, 0.05);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      &:before{
+        left: calc((100% - 152.8rem) / 2);
+        transform: translateX(-2px);
+      }
+      &:after{
+        right:  calc((100% - 152.8rem) / 2);
+        transform: translateX(2px);
+      }
+      &:before, &:after{
+        position: absolute;
+        display: block;
+        content: '';
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: #319597;
+        top: -2px;
+        @media (max-width: 1460px) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__art {
+    width: 54.3rem;
+    height: 28.2rem;
+    top: 16rem;
+    left: 14rem;
+    @media (max-width: 1315px) {
+      width: 30rem;
+      height: 15rem;
+      left: 20rem;
+    }
+    @media (max-width: 768px) {
+      top: 5rem;
+      left: 50%;
+      margin-left: -15rem;
+    }
+  }
+
+  &__protect {
+    height: 74.3rem;
+    width: 17.6rem;
+    top: 23rem;
+    left: 93rem;
+    @media (max-width: 1315px) {
+      height: 30rem;
+      width: 10rem;
+    }
+    @media (max-width: 1024px) {
+      left: 70rem;
+    }
+    @media (max-width: 768px) {
+      left: 50%;
+      margin-left: -5rem;
+      top: 25rem;
+    }
+    @media (max-width: 767px) {
+      top: 10rem;
+    }
+
+    img{
+      @media (max-width: 767px) {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
+  &__art, &__protect {
+    position: absolute;
+    z-index: 1;
+
+    &--shadow {
+      z-index: 0;
+
+      img {
+        transform: translate(-1.5rem, 1.5rem);
+      }
+    }
+
+  }
+
+  &__image {
+    transform: translateY(-2rem);
+    position: absolute;
+    width: 100%;
+    height: 105rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 767px) {
+      width: calc(100% + 3.2rem);
+      left: 50%;
+      transform: translateX(-50%) translateY(-2rem);
+      height: 60rem;
+    }
+  }
+}

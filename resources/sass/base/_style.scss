@@ -3,10 +3,6 @@ html {
   @media (max-width: 1600px) {
     font-size: 9px;
   }
-  @media (max-width: 450px) {
-    font-size: 10px;
-
-  }
 }
 
 body {
@@ -128,17 +124,6 @@ img.cover {
   animation: show 1.6s linear;
 }
 
-section {
-  position: relative;
-}
-
-.container {
-  width: 100%;
-  max-width: 156rem;
-  margin: 0 auto;
-  padding: 0 1.6rem;
-}
-
 strong {
   font-weight: bold;
 }
@@ -147,13 +132,39 @@ em, i {
   font-style: italic;
 }
 
+section {
+  position: relative;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 156rem;
+  margin: 0 auto;
+  padding: 0 1.6rem;
+  &:before{
+    left: 1.6rem;
+  }
+  &:after{
+    right: 1.6rem;
+  }
+  &:before,&:after{
+    position: absolute;
+    display: block;
+    content: '';
+    top: 0;
+    width: 1px;
+    height: 100%;
+    opacity: 0.05;
+    background: #000;
+  }
+}
+
 .section {
   position: relative;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
-
-
 }
 
 .padding-top-none {
@@ -171,8 +182,6 @@ em, i {
 [data-link] {
   cursor: pointer;
 }
-
-
 
 .text {
   color: #000;
@@ -268,10 +277,10 @@ em, i {
 
 .icon {
   display: inline-flex;
-  flex-grow: 0;
-  flex-shrink: 0;
   align-items: center;
   justify-content: center;
+  flex-grow: 0;
+  flex-shrink: 0;
 }
 
 .align-items-center {

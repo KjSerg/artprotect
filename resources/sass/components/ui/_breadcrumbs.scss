@@ -18,7 +18,14 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  @media (max-width: 767px) {
+    width: calc(100% - 3.2rem);
+    margin: 0;
+    overflow: hidden;
 
+    left: 0;
+    transform: translateX(0);
+  }
   @media (max-width: 450px) {
     top: calc(100% + 2rem);
   }

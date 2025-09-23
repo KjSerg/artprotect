@@ -16,6 +16,10 @@
     height: 13.1rem;
     flex-shrink: 0;
     flex-grow: 0;
+    @media (max-width: 1024px) {
+      width: 10rem;
+      height: 10rem;
+    }
 
     &:hover {
       transform: scale(0.9);
@@ -30,5 +34,9 @@
     font-style: normal;
     font-weight: 600;
     line-height: 100%; /* 3.6rem */
+    @media (max-width: 1024px) {
+      margin-bottom: 2rem;
+      font-size: 3rem;
+    }
   }
 }

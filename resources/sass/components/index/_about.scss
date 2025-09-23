@@ -112,6 +112,9 @@
       @media (max-width: 768px) {
         flex-direction: column-reverse;
       }
+      @media (max-width: 450px) {
+        padding-bottom: 6rem;
+      }
     }
 
     &__decor-text {

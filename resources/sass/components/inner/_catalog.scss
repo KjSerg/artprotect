@@ -1,0 +1,24 @@
+.catalog{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  @media (max-width: 1400px){
+    gap: 1rem;
+  }
+  @media (max-width: 1024px){
+    justify-content: space-between;
+  }
+  &-item{
+    position: relative;
+    width: calc(33.3% - 2rem);
+    @media (max-width: 1400px){
+      width: calc(33.3% - 0.7rem);
+    }
+    @media (max-width: 1023px){
+      width: calc(50% - 0.5rem);
+    }
+    @media (max-width: 767px){
+      width: 100%;
+    }
+  }
+}

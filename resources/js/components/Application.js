@@ -60,6 +60,7 @@ export default class Application {
             this.showLoaderOnClick();
             this.linkListener();
             this.sectionFooterInit();
+            this.breadcrumbsHideOnScroll();
             const formHandler = new FormHandler('.form-js');
             $('img.svg').toSVG({
                 svgClass: "svg-loaded"
@@ -144,6 +145,11 @@ export default class Application {
     }
 
     sectionFooterInit() {
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: "0px",
+            threshold: 0.5 // Спрацює, коли 50% секції видно
+        };
         const $el = $(document).find('.section-footer__counter');
         if ($el.length === 0) return;
         const $sections = $(document).find('main.content section');
@@ -157,11 +163,23 @@ export default class Application {
                     $el.find('strong:first-child').text(numberZeroFormat(sectionNumber));
                 }
             });
-        });
+        }, observerOptions);
 
         // "Навішуємо" спостерігача на кожну секцію
         sections.forEach(section => {
             observer.observe(section);
         });
+    }
+
+    breadcrumbsHideOnScroll(){
+        const $breadcrumbs = this.$doc.find('.breadcrumbs');
+        if ($breadcrumbs.length === 0) return;
+        $(window).on('scroll load', function (){
+            if( $(window).scrollTop() === 0){
+                $breadcrumbs.show();
+            }else {
+                $breadcrumbs.hide();
+            }
+        })
     }
 }

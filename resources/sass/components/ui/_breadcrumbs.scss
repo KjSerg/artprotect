@@ -1,0 +1,39 @@
+.breadcrumbs{
+  position: absolute;
+  top: calc(100% + 5rem);
+  width: 100%;
+  max-width: 156rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  padding: 0 1.6rem;
+  color: #000;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 145%;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  @media (max-width: 450px) {
+    top: calc(100% + 2rem);
+  }
+  a {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #597170;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 145%;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}

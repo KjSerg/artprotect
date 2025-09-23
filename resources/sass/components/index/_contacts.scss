@@ -1,18 +1,21 @@
 .contacts {
   &-footer{
-    padding-right: 1rem;
     position: relative;
+    pointer-events: none;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    padding-bottom: 4rem;
-    padding-top: 7rem;
     gap: 20rem;
+
+    padding: 7rem 1rem 4rem;
     color: #798B8A;
     font-size: 1.5rem;
     font-style: normal;
     font-weight: 400;
     line-height: 145%;
+    & > *{
+      pointer-events: auto;
+    }
     @media (max-width: 1475px) {
 
       padding-bottom: 2rem;
@@ -36,8 +39,10 @@
       left: 50%;
       transform: translateX(-50%);
       @media (max-width: 767px) {
-        width: 100%;
         bottom: -1rem;
+      }
+      @media (max-width: 425px) {
+        width: 100%;
       }
     }
     &__details{

@@ -47,7 +47,6 @@ a {
   font-style: normal;
   font-weight: 600;
   line-height: 100%;
-  text-transform: uppercase;
 }
 
 img:not(.pswp__img) {
@@ -348,23 +347,22 @@ section {
   }
 
   h5 {
-    font-size: 3rem;
+    font-size: 2.4rem;
     font-style: normal;
-    font-weight: 500;
-    line-height: 100%;
-    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 125%;
     @media (max-width: 450px) {
-      font-size: 2.6rem;
+      font-size: 2rem;
     }
   }
 
   h6 {
-    font-size: 2.8rem;
+    font-size: 2rem;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 100%;
     @media (max-width: 450px) {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
     }
   }
 }
@@ -383,6 +381,38 @@ section {
 
 .animation-none {
   animation: none !important;
+}
+
+.decor-line{
+  position: fixed;
+
+  display: flex;
+  width: 100%;
+  max-width: 156rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 1.6rem;
+
+  top: 0;
+  height: 100%;
+  pointer-events: none;
+  span {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    opacity: 0.05;
+    background: #000;
+    &:nth-child(1){
+      left: 1.6rem;
+    }
+    &:nth-child(3){
+      right:  1.6rem;
+    }
+    &:nth-child(2){
+      left: 50%;
+    }
+  }
 }
 
 @keyframes show {

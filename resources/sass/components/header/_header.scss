@@ -10,7 +10,23 @@
   font-style: normal;
   font-weight: 500;
   line-height: 100%;
-  text-transform: uppercase;
+  &:after{
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    opacity: 0.05;
+    background: #000;
+    left: 50%;
+  }
+  &--static{
+    position: relative;
+  }
+  &--breadcrumbs + main > section:first-child{
+    padding-top: 9rem;
+  }
   @media (max-width: 768px) {
     font-size: 2rem;
   }
@@ -160,6 +176,7 @@
     position: relative;
     display: inline-block;
     text-align: right;
+    text-transform: uppercase;
 
     &:after {
       position: absolute;

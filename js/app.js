@@ -21384,6 +21384,7 @@ var Application = /*#__PURE__*/function () {
         _this.showLoaderOnClick();
         _this.linkListener();
         _this.sectionFooterInit();
+        _this.breadcrumbsHideOnScroll();
         var formHandler = new _forms_FormHandler__WEBPACK_IMPORTED_MODULE_9__["default"]('.form-js');
         $('img.svg').toSVG({
           svgClass: "svg-loaded"
@@ -21468,6 +21469,12 @@ var Application = /*#__PURE__*/function () {
   }, {
     key: "sectionFooterInit",
     value: function sectionFooterInit() {
+      var observerOptions = {
+        root: null,
+        // viewport
+        rootMargin: "0px",
+        threshold: 0.5 // Спрацює, коли 50% секції видно
+      };
       var $el = $(document).find('.section-footer__counter');
       if ($el.length === 0) return;
       var $sections = $(document).find('main.content section');
@@ -21481,11 +21488,24 @@ var Application = /*#__PURE__*/function () {
             $el.find('strong:first-child').text((0,_utils_helpers__WEBPACK_IMPORTED_MODULE_0__.numberZeroFormat)(sectionNumber));
           }
         });
-      });
+      }, observerOptions);
 
       // "Навішуємо" спостерігача на кожну секцію
       sections.forEach(function (section) {
         observer.observe(section);
+      });
+    }
+  }, {
+    key: "breadcrumbsHideOnScroll",
+    value: function breadcrumbsHideOnScroll() {
+      var $breadcrumbs = this.$doc.find('.breadcrumbs');
+      if ($breadcrumbs.length === 0) return;
+      $(window).on('scroll load', function () {
+        if ($(window).scrollTop() === 0) {
+          $breadcrumbs.show();
+        } else {
+          $breadcrumbs.hide();
+        }
       });
     }
   }]);

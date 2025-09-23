@@ -145,3 +145,8 @@ export function moveToElement($el) {
         scrollTop: $el.offset().top
     });
 }
+
+export const numberZeroFormat = (num) => {
+    if (isNaN(num)) return num;
+    return num < 10 ? '0' + num : num;
+}

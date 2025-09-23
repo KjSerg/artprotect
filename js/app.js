@@ -21383,6 +21383,7 @@ var Application = /*#__PURE__*/function () {
         (0,_plugins_fancybox_init__WEBPACK_IMPORTED_MODULE_5__.fancyboxInit)();
         _this.showLoaderOnClick();
         _this.linkListener();
+        _this.sectionFooterInit();
         var formHandler = new _forms_FormHandler__WEBPACK_IMPORTED_MODULE_9__["default"]('.form-js');
         $('img.svg').toSVG({
           svgClass: "svg-loaded"
@@ -21462,6 +21463,29 @@ var Application = /*#__PURE__*/function () {
           }
         }
         window.location.href = href;
+      });
+    }
+  }, {
+    key: "sectionFooterInit",
+    value: function sectionFooterInit() {
+      var $el = $(document).find('.section-footer__counter');
+      if ($el.length === 0) return;
+      var $sections = $(document).find('main.content section');
+      var sections = document.querySelectorAll("main.content section");
+      $el.find('span:last-child').text((0,_utils_helpers__WEBPACK_IMPORTED_MODULE_0__.numberZeroFormat)($sections.length));
+      var observer = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          // entry.isIntersecting - це boolean, true якщо елемент у в'юпорті
+          if (entry.isIntersecting) {
+            var sectionNumber = Number($(entry.target).index()) + 1;
+            $el.find('strong:first-child').text((0,_utils_helpers__WEBPACK_IMPORTED_MODULE_0__.numberZeroFormat)(sectionNumber));
+          }
+        });
+      });
+
+      // "Навішуємо" спостерігача на кожну секцію
+      sections.forEach(function (section) {
+        observer.observe(section);
       });
     }
   }]);
@@ -21930,6 +21954,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   isMobile: () => (/* binding */ isMobile),
 /* harmony export */   isObjectEmpty: () => (/* binding */ isObjectEmpty),
 /* harmony export */   moveToElement: () => (/* binding */ moveToElement),
+/* harmony export */   numberZeroFormat: () => (/* binding */ numberZeroFormat),
 /* harmony export */   randomIntFromInterval: () => (/* binding */ randomIntFromInterval),
 /* harmony export */   removeArrayElement: () => (/* binding */ removeArrayElement),
 /* harmony export */   setCookie: () => (/* binding */ setCookie),
@@ -22074,6 +22099,10 @@ function moveToElement($el) {
     scrollTop: $el.offset().top
   });
 }
+var numberZeroFormat = function numberZeroFormat(num) {
+  if (isNaN(num)) return num;
+  return num < 10 ? '0' + num : num;
+};
 
 /***/ }),
 

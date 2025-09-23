@@ -1,5 +1,8 @@
 .header {
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff;
   z-index: 20;
   color: #000;
   font-family: "Alumni Sans SC", sans-serif;

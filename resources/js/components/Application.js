@@ -1,4 +1,12 @@
-import {copyToClipboard, detectBrowser, hidePreloader, isJsonString, isMobile, showPreloader} from "./utils/_helpers";
+import {
+    copyToClipboard,
+    detectBrowser,
+    hidePreloader,
+    isJsonString,
+    isMobile,
+    numberZeroFormat,
+    showPreloader
+} from "./utils/_helpers";
 import {burger} from "./ui/_burger";
 import {accordion} from "./ui/_accardion";
 import {initTelMask, numberInput} from "./forms/_number-input";
@@ -51,6 +59,7 @@ export default class Application {
             fancyboxInit();
             this.showLoaderOnClick();
             this.linkListener();
+            this.sectionFooterInit();
             const formHandler = new FormHandler('.form-js');
             $('img.svg').toSVG({
                 svgClass: "svg-loaded"
@@ -60,7 +69,6 @@ export default class Application {
             });
         });
     }
-
 
     linkListener() {
         const t = this;
@@ -133,5 +141,27 @@ export default class Application {
             window.location.href = href;
         });
 
+    }
+
+    sectionFooterInit() {
+        const $el = $(document).find('.section-footer__counter');
+        if ($el.length === 0) return;
+        const $sections = $(document).find('main.content section');
+        const sections = document.querySelectorAll("main.content section");
+        $el.find('span:last-child').text(numberZeroFormat($sections.length));
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                // entry.isIntersecting - це boolean, true якщо елемент у в'юпорті
+                if (entry.isIntersecting) {
+                    let sectionNumber = Number($(entry.target).index()) + 1;
+                    $el.find('strong:first-child').text(numberZeroFormat(sectionNumber));
+                }
+            });
+        });
+
+        // "Навішуємо" спостерігача на кожну секцію
+        sections.forEach(section => {
+            observer.observe(section);
+        });
     }
 }

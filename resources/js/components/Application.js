@@ -18,6 +18,7 @@ import {sendRequestClickListener} from "./ui/_request-on-click";
 import FormHandler from "./forms/FormHandler";
 import '../plugins/SVGLoader';
 import AOS from "aos";
+import Slick from "../plugins/Slick";
 
 
 export default class Application {
@@ -68,6 +69,7 @@ export default class Application {
             AOS.init({
                 once: true
             });
+            const slick = new Slick();
         });
     }
 

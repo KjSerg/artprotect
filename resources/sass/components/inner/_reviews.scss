@@ -1,0 +1,60 @@
+.reviews{
+  &-section{
+    padding-top: 3rem;
+  }
+ &__title{
+   position: relative;
+   padding-bottom: 2rem;
+   margin-bottom: 5rem;
+   @media (max-width: 768px) {
+     margin-bottom: 1rem;
+   }
+ }
+}
+.review{
+  border: 1px solid #E8E8E8;
+  background: #FFF;
+  &__text{
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+  }
+  &__icon{
+    width: 4.2rem;
+    height: 2.9rem;
+    flex-shrink: 0;
+    flex-grow: 0;
+    @media (max-width: 1200px) {
+
+      width: 3rem;
+      height: 2rem;
+    }
+  }
+  &-content{
+    gap: 3rem;
+    display: flex;
+    padding: 4rem 3rem;
+    @media (max-width: 1200px) {
+      padding: 1.6rem;
+      gap: 1rem;
+    }
+  }
+  &-head{
+    width: calc(100% - 19.3rem);
+    padding: 2rem 4rem;
+    @media (max-width: 1200px) {
+      padding: 1.6rem;
+    }
+  }
+  &-row{
+    display: flex;
+    align-items: center;
+  }
+  &__avatar{
+    width: 19.3rem;
+    height: 17.3rem;
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+}

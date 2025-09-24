@@ -1,0 +1,20 @@
+.profit{
+  &-head{
+    width: 100%;
+    max-width: 82.3rem;
+    &__title{
+      font-size: 4.5rem;
+      width: 100%;
+      max-width: 70.7rem;
+      margin: 0 auto;
+    }
+  }
+  &-section{
+    &-head{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8rem;
+    }
+  }
+}

@@ -1,0 +1,99 @@
+.working{
+  &-list{
+    display: flex;
+    flex-wrap: wrap;
+    @media (max-width: 1023px) {
+      flex-wrap: wrap;
+    }
+    &-item{
+      position: relative;
+      width: 25%;
+      padding: 7rem 3rem;
+      border: 1px solid #E8E8E8;
+      background: #FFF;
+      color: #000;
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.7rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 145%;
+      @media (max-width: 1200px) {
+        padding: 7rem 2rem;
+      }
+      @media (max-width: 1024px) {
+        padding: 6rem 1rem;
+      }
+      @media (max-width: 1023px) {
+        width: 50%;
+        padding-bottom: 2rem;
+      }
+      @media (max-width: 450px) {
+        width: 100%;
+        font-size: 1.6rem;
+      }
+      ul {
+        li{
+          padding-left: 2rem;
+          position: relative;
+          &:before{
+            position: absolute;
+            display: block;
+            content: '';
+            top: 0.8rem;
+            left: 0;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            border: 2px solid #319597;
+          }
+          &:not(:last-child){
+            margin-bottom: 3rem;
+            @media (max-width: 1200px) {
+              margin-bottom: 2rem;
+            }
+            @media (max-width: 450px) {
+              margin-bottom: 1rem;
+            }
+          }
+        }
+      }
+
+      &__title{
+        margin-bottom: 3rem;
+        color: #319597;
+        font-family: "Alumni Sans SC", sans-serif;
+        font-size: 3.3rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 100%; /* 3.3rem */
+        text-transform: uppercase;
+        @media (max-width: 1200px) {
+          margin-bottom: 2rem;
+        }
+      }
+      &__number{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #319597;
+        min-width: 5rem;
+        height: 6rem;
+        flex-shrink: 0;
+        color: #FFF;
+        text-align: center;
+        font-family: "Alumni Sans SC", sans-serif;
+        font-size: 3.3rem;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 100%; /* 3.3rem */
+        text-transform: uppercase;
+        @media (max-width: 1024px) {
+          height: 5rem;
+        }
+      }
+    }
+  }
+}

@@ -2,19 +2,187 @@
   &-head{
     width: 100%;
     max-width: 82.3rem;
+    @media (max-width: 1300px) {
+      max-width: 70rem;
+    }
+    @media (max-width: 1024px) {
+      max-width: 60rem;
+    }
+
+    @media (max-width: 992px) {
+      max-width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      justify-content: center;
+    }
+    @media (max-width: 450px) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    & > .profit-section__button{
+
+      display: none;
+      @media (max-width: 992px){
+        display: inline-flex;
+      }
+    }
     &__title{
       font-size: 4.5rem;
       width: 100%;
       max-width: 70.7rem;
       margin: 0 auto;
+      @media (max-width: 1024px) {
+        font-size: 3rem;
+      }
+      &:not(:last-child){
+        @media (max-width: 992px){
+          margin-bottom: 0;
+          padding-bottom: 0;
+        }
+      }
+
     }
   }
   &-section{
+    &__button{
+      @media (max-width: 992px) {
+        min-width: 20rem;
+        display: none;
+        padding: 2rem 3rem;
+        width: auto;
+        height: auto;
+        border-radius: 1rem;
+        font-size: 2rem;
+      }
+      @media (max-width: 450px) {
+        min-width: auto;
+        width: 100%;
+        max-width: 30rem;
+      }
+
+      &:after{
+        @media (max-width: 992px) {
+          border-radius: 1rem;
+          animation: none;
+        }
+      }
+    }
     &-head{
+      margin-bottom: 7rem;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 8rem;
+      @media (max-width: 1300px) {
+
+        gap: 4rem;
+      }
+      @media (max-width: 1024px) {
+        margin-bottom: 3rem;
+        gap: 3rem;
+      }
+
+
+    }
+  }
+  &-list{
+    display: flex;
+    flex-wrap: wrap;
+    &-item{
+      position: relative;
+      padding: 12rem 3rem 3rem;
+      width: 33.3%;
+      border: 1px solid #E8E8E8;
+      background: #FFF;
+      color: #000;
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.7rem;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 145%;
+
+      @media (max-width: 1200px) {
+        padding: 6rem 2rem 2rem;
+      }
+      @media (max-width: 1023px) {
+        padding: 7rem 1rem 1rem;
+        font-size: 1.6rem;
+      }
+      @media (max-width: 767px) {
+        width: 100%;
+        padding-bottom: 2rem;
+      }
+      &__list{
+        ul {
+          li{
+            padding-left: 2rem;
+            position: relative;
+            &:before{
+              position: absolute;
+              display: block;
+              content: '';
+              top: 0.8rem;
+              left: 0;
+              width: 6px;
+              height: 6px;
+              border-radius: 50%;
+              border: 2px solid #319597;
+            }
+            &:not(:last-child){
+              margin-bottom: 3rem;
+              @media (max-width: 1200px) {
+                margin-bottom: 2rem;
+              }
+              @media (max-width: 1023px) {
+                margin-bottom: 1rem;
+              }
+            }
+          }
+        }
+      }
+      &__title{
+        padding-right: 12rem;
+        margin-bottom: 3rem;
+        color: #28B8AF;
+        font-family: "Alumni Sans SC", sans-serif;
+        font-size: 3.3rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 100%; /* 3.3rem */
+        text-transform: uppercase;
+        @media (max-width: 1200px) {
+          padding-right: 8rem;
+        }
+        @media (max-width: 1023px) {
+          margin-bottom: 2rem;
+          padding-right:0;
+          font-size: 3rem;
+        }
+      }
+      &__icon{
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 12.9rem;
+        height: 14.4rem;
+        padding: 1rem;
+        flex-shrink: 0;
+        flex-grow: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #F3FBFB;
+        @media (max-width: 1200px) {
+          width: 8rem;
+          height: 8rem;
+        }
+        @media (max-width: 1023px) {
+          height: 6rem;
+        }
+      }
     }
   }
 }

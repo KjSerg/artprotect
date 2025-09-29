@@ -12,14 +12,18 @@ export const fancyboxInit = () => {
         const href = $t.attr('href');
         if (href === undefined) return;
         const $el = $(document).find(href);
-        if ($el.length === 0) return;
-        $.fancybox.open($el);
+        openFancyModal($el);
     });
     $(document).on('click', '.close-fancybox-modal', function (e) {
         e.preventDefault();
         $.fancybox.close();
     });
 };
+
+export function openFancyModal($el, args = {}) {
+    if ($el.length === 0) return;
+    $.fancybox.open($el, args);
+}
 
 export function showMsg(msg, url = '') {
     const selector = '#dialog';
@@ -31,9 +35,9 @@ export function showMsg(msg, url = '') {
         }
         return;
     }
-    if(msg.length < 50){
+    if (msg.length < 50) {
         $modal.find('.modal__title').html(msg);
-    }else {
+    } else {
         $modal.find('.modal__text').html(msg);
     }
     $.fancybox.open($modal, {
@@ -43,7 +47,7 @@ export function showMsg(msg, url = '') {
             }
         }
     });
-    setTimeout(function (){
+    setTimeout(function () {
         $.fancybox.close();
     }, 3000);
 }

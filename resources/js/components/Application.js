@@ -19,6 +19,7 @@ import FormHandler from "./forms/FormHandler";
 import '../plugins/SVGLoader';
 import AOS from "aos";
 import Slick from "../plugins/Slick";
+import {casesLinkListener, readURLSearchParams} from "./cases/_loadCases";
 
 
 export default class Application {
@@ -58,6 +59,9 @@ export default class Application {
             showPassword();
             selectrickInit();
             fancyboxInit();
+            casesLinkListener();
+            readURLSearchParams();
+            this.addSectionHushToPaginationLinks();
             this.showLoaderOnClick();
             this.linkListener();
             this.sectionFooterInit();
@@ -70,6 +74,10 @@ export default class Application {
                 once: true
             });
             const slick = new Slick();
+            $(document).on('change', '.trigger-form-js', function () {
+                const $select = $(this);
+                $select.closest('form').submit();
+            });
         });
     }
 
@@ -126,7 +134,7 @@ export default class Application {
                 $(document).find('.container-js').append($catalog.html());
             });
         });
-        $doc.on('click', 'a[href*="#"]:not(.fancybox, .tabs-head__item, .deliverables-menu__item, .not-custom-listener-js)', function (e) {
+        $doc.on('click', 'a[href*="#"]:not(.fancybox, .tabs-head__item, .deliverables-menu__item, .not-custom-listener-js, .pagination a)', function (e) {
             e.preventDefault();
             const $t = $(this);
             const href = $t.attr('href');
@@ -173,15 +181,37 @@ export default class Application {
         });
     }
 
-    breadcrumbsHideOnScroll(){
+    breadcrumbsHideOnScroll() {
         const $breadcrumbs = this.$doc.find('.breadcrumbs');
         if ($breadcrumbs.length === 0) return;
-        $(window).on('scroll load', function (){
-            if( $(window).scrollTop() === 0){
+        $(window).on('scroll load', function () {
+            if ($(window).scrollTop() === 0) {
                 $breadcrumbs.show();
-            }else {
+            } else {
                 $breadcrumbs.hide();
             }
+        })
+    }
+
+    addSectionHushToPaginationLinks() {
+        $(document).find('.pagination').each(function () {
+            const $pagination = $(this);
+            const $section = $pagination.closest('section');
+            let sectionID = $section.attr('id');
+            if (sectionID === undefined) {
+                $section.attr('id', 'section-' + $section.index());
+                sectionID = $section.attr('id');
+            }
+            $pagination.find('a').each(function () {
+                const $link = $(this);
+                const href = $link.attr('href');
+                if (href !== '#') {
+                    const hashValue = href.split('#')[1];
+                    if (hashValue === undefined) {
+                        $link.attr('href', href + '#' + sectionID);
+                    }
+                }
+            })
         })
     }
 }

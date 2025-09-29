@@ -2,13 +2,14 @@ import Inputmask from "inputmask";
 
 export const initTelMask = () => {
     $('input[type="tel"]').each(function () {
+        const $t = $(this);
+        const mask = $t.attr('data-mask') || "+1(999)9999999";
         Inputmask({
-            mask: "+1(999)9999999",
+            mask: mask,
             greedy: false,
             placeholder: "_",
             showMaskOnHover: true
         }).mask(this);
-        const $t = $(this);
         $t.on('focusout change', function () {
             const $this = $(this);
             let val = $this.val().trim();

@@ -176,3 +176,24 @@
     }
   }
 }
+
+input.error{
+  border-color: red!important;
+  color: red!important;
+  &::placeholder{
+    color: red!important;
+  }
+
+}
+.form-label.error{
+  color: red!important;
+  .selectric{
+    border-color: red!important;
+    .label{
+      color: red!important;
+    }
+  }
+  .form-checkbox-text{
+    color: red!important;
+  }
+}

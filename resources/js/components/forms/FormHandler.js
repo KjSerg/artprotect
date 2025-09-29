@@ -7,15 +7,9 @@ export default class FormHandler {
         this.selector = selector;
         this.$document = $(document);
         this.initialize();
-        this.selectInit();
     }
 
-    selectInit() {
-        $(document).on('change', '.trigger-form-js', function () {
-            const $select = $(this);
-            $select.closest('form').submit();
-        });
-    }
+
 
     initialize() {
         this.$document.on('submit', this.selector, (e) => this.handleSubmit(e));
